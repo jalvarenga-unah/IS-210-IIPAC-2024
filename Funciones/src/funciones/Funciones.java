@@ -38,6 +38,12 @@ public class Funciones {
             System.out.println(error.getMessage());
             
         }
+        
+        
+        int[] numeros = {3,5,8,7,1,0,9,2,33,4};
+        
+        System.out.println(valorMayor(numeros));
+        
  
     }
     
@@ -74,6 +80,25 @@ public class Funciones {
         
         System.out.println("el resultado es: "+ n1/n2);
     }
+ 
     
+    public static int valorMayor(int[] numeros){
+        
+        int numMayor = numeros[0];
+        int index = 0;
+        
+        
+        for(int a = 0; a< numeros.length; a++){
+            
+            if( numeros[a] > numMayor ){
+                numMayor = numeros[a];
+                index = a;
+            }
+            
+        }
+        
+        System.out.println("se encontró en la posicion: "+ index);
+        return numMayor;
+    }
     
 }
