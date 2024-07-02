@@ -4,6 +4,8 @@
  */
 package funciones;
 
+import java.util.Scanner;
+
 /**
  *
  * @author juanalvarenga
@@ -40,12 +42,53 @@ public class Funciones {
         }
         
         
-        int[] numeros = {3,5,8,7,1,0,9,2,33,4};
+        int[] numeros = {3,5,8,7,1,0,9,2,-33,4};
+        
+        
         
         System.out.println(valorMayor(numeros));
         
+        
+        
+        int[] numeros_desordenados = new int[3];
+        
+        // Instancia que me permite capturar información desde el teclado
+        Scanner sc = new Scanner(System.in);
+        
+        for (int c = 0; c < numeros_desordenados.length ; c++){
+            
+            
+            System.out.print("Ingrese un número: ");
+            numeros_desordenados[c] = sc.nextInt(); // le indica que admite solo numeros enteros
+                    
+        }
+         
+        
+        ordenar(numeros_desordenados);
+        
  
     }
+    
+    //FUERA DE MAIN
+    
+    private static boolean ordenar(int[] nums ){
+        
+        int c =0;
+        for( c=0; c < nums.length; c ++){
+            System.out.println(nums[c]);
+            
+        }
+        
+        
+        int[] nums_ordenado = new int[4];
+        
+        boolean test = true;
+        
+
+        return test; // el fin de ejecucion de la funcion
+        
+    } 
+    
     
     
     private static String saludar()
