@@ -9,22 +9,22 @@ package examenp2;
  * @author juanalvarenga
  */
 public class ExamenP2 {
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
 
-        System.out.println(reversa("Hola, mundo"));
-        contar('x');
+//        System.out.println(reversa("Hola, mundo"));
+//        contar('x');
 
-        int[] numeros = {2, 1,3};
+        int[] numeros = {2, 1, 30, 5, 3, 2};
 
         System.out.println("el repetido es: "+repetido(numeros));
 
     }
-
+        
     static int repetido(int[] numeros) {
 
         int result = -1;
@@ -60,7 +60,7 @@ public class ExamenP2 {
 
         return result;
     }
-
+    
     static String reversa(String texto) {
 
         String textInverso = "";
@@ -72,7 +72,7 @@ public class ExamenP2 {
         return textInverso;
 
     }
-
+      
     static void contar(char letra) {
 
         String cadena = "Hola mundo, esto es una cadena";
