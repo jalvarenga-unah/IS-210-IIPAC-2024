@@ -19,29 +19,56 @@ public class Mascota {
     //constructor por defecto
     // definido de forma implicita
     Mascota(String nombre, String tipo, String raza, int edad) {
-        
+
 //        this = una instancia de "Mascota"
-        
         this.nombre = nombre;
         this.tipo = tipo;
-        
+
         this.raza = raza;
         this.edad = edad;
-        
 
     }
 
-    Mascota(){
+    Mascota(String nombre) {
+
+//        this = una instancia de "Mascota"
+        this.nombre = nombre;
+
     }
-    
+
+    Mascota() {
+    }
+
     //comportamientos
-    public void mostrarInfo() { 
+    public void mostrarInfo() {
+
+        String nombre;
         System.out.println("===========================");
-        System.out.println("Nombre: " + nombre);
+        System.out.println("Nombre: " + this.nombre);
         System.out.println("Tipo: " + tipo);
         System.out.println("Raza: " + raza);
         System.out.println("Edad: " + edad);
         System.out.println("===========================");
+    }
+
+    //getters y setters
+    String getNombre() {
+        return nombre;
+    }
+
+        void setNombre(String valor) throws Exception {
+
+        if (valor.isEmpty()) {
+            
+            // genere una excepción
+            
+            throw new Exception("El nombre no puede ser vacío");
+            
+//            return;  
+        }
+
+        this.nombre = valor;
+
     }
 
 }
