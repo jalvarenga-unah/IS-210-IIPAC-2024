@@ -4,6 +4,8 @@
  */
 package clases;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author juanalvarenga
@@ -15,10 +17,16 @@ public class Mascota {
     private String tipo;
     private String raza;
     private int edad;
-
+    private Vacuna infoVacuna;
+    
+    // PARA QUE JUEGUEN UN RATO
+//    Vacuna[] vacunas = new Vacuna[12];
+//    ArrayList<Vacuna> vacunas= new ArrayList();
+    
+    
     //constructor por defecto
     // definido de forma implicita
-    Mascota(String nombre, String tipo, String raza, int edad) {
+    Mascota(String nombre, String tipo, String raza, int edad, Vacuna info) {
 
 //        this = una instancia de "Mascota"
         this.nombre = nombre;
@@ -26,6 +34,8 @@ public class Mascota {
 
         this.raza = raza;
         this.edad = edad;
+        
+        this.infoVacuna = info;
 
     }
 
@@ -41,14 +51,15 @@ public class Mascota {
 
     //comportamientos
     public void mostrarInfo() {
-
-        String nombre;
         System.out.println("===========================");
         System.out.println("Nombre: " + this.nombre);
         System.out.println("Tipo: " + tipo);
         System.out.println("Raza: " + raza);
         System.out.println("Edad: " + edad);
         System.out.println("===========================");
+        
+        System.out.println("===Información de la vacuna===");
+        this.infoVacuna.mostrarInformacion();// es un metodo existente en la clase Vacuna
     }
 
     //getters y setters

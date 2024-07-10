@@ -23,24 +23,32 @@ public class Clases {
 //        2. ABSTRACCION
 //        3. HERENCIA
 //        4. POLIMORFISMO
-        Mascota apolo = new Mascota("Apolo", "Perro", "Terrier", 2);
+
+
+        //instanciar la clase Vacuna
+        
+        Vacuna informacion = new Vacuna("Pfizer", "2024-07-09", "La rabia");
+
+           // Se puede usar de forma independiente
+//        informacion.mostrarInformacion();
+        
+        Mascota apolo = new Mascota("Apolo", "Perro", "Terrier", 2, informacion);
 
 //           apolo.nombre = "Apolo";
 //           apolo.tipo = "Perro";
 //           apolo.raza = "Terrier";
 //           apolo.edad = -2;
         try {
-            
-            
+
             //showInputDialog: el boton "cancelar", retoran un "null"
-            
-            String nombre = JOptionPane.showInputDialog("Ingrese el nombre de su mascota");
-            
+            String nombre = JOptionPane
+                    .showInputDialog("Ingrese el nombre de su mascota");
+
             apolo.setNombre(nombre);
-        }catch(Exception error){
-            
-            JOptionPane. showMessageDialog(null, error.getMessage()  );
-            
+        } catch (Exception error) {
+
+            JOptionPane.showMessageDialog(null, error.getMessage());
+
 //            System.out.println(error.getMessage());
         }
 
