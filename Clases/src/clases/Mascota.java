@@ -17,16 +17,16 @@ public class Mascota {
     private String tipo;
     private String raza;
     private int edad;
-    private Vacuna infoVacuna;
+//    private Vacuna infoVacuna;
+    private ArrayList<Vacuna> vacunas = new ArrayList();
     
-    // PARA QUE JUEGUEN UN RATO
-//    Vacuna[] vacunas = new Vacuna[12];
-//    ArrayList<Vacuna> vacunas= new ArrayList();
+//    Propietario propietario;
     
-    
+    // Propietario -> nombre, edad, genero
+
     //constructor por defecto
     // definido de forma implicita
-    Mascota(String nombre, String tipo, String raza, int edad, Vacuna info) {
+    Mascota(String nombre, String tipo, String raza, int edad, ArrayList<Vacuna> vacunas) {
 
 //        this = una instancia de "Mascota"
         this.nombre = nombre;
@@ -34,8 +34,9 @@ public class Mascota {
 
         this.raza = raza;
         this.edad = edad;
-        
-        this.infoVacuna = info;
+
+//        this.infoVacuna = info;
+        this.vacunas = vacunas;
 
     }
 
@@ -57,9 +58,23 @@ public class Mascota {
         System.out.println("Raza: " + raza);
         System.out.println("Edad: " + edad);
         System.out.println("===========================");
-        
-        System.out.println("===Información de la vacuna===");
-        this.infoVacuna.mostrarInformacion();// es un metodo existente en la clase Vacuna
+
+        System.out.println("===Información de las vacunas===");
+//        this.vacunas.mostrarInformacion();// es un metodo existente en la clase Vacuna
+
+            //recorrer todo el listado de vacunas
+           for (int i = 0; i < vacunas.size(); i++){
+               
+               //acceder a la instancia que se está iterando
+               Vacuna info = vacunas.get(i); // devuelve una inastacia de Vacuna
+               
+               //ejecutar el método, para obtener la información 
+               info.mostrarInformacion();
+               
+               System.out.println("\n");
+
+           }
+
     }
 
     //getters y setters
@@ -67,14 +82,13 @@ public class Mascota {
         return nombre;
     }
 
-        void setNombre(String valor) throws Exception {
+    void setNombre(String valor) throws Exception {
 
         if (valor.isEmpty()) {
-            
+
             // genere una excepción
-            
             throw new Exception("El nombre no puede ser vacío");
-            
+
 //            return;  
         }
 

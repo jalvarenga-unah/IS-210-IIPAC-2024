@@ -1,5 +1,6 @@
 package clases;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /*
@@ -25,14 +26,25 @@ public class Clases {
 //        4. POLIMORFISMO
 
 
-        //instanciar la clase Vacuna
         
-        Vacuna informacion = new Vacuna("Pfizer", "2024-07-09", "La rabia");
+        // definir la varibale que contendrá todas las vacunas
+        ArrayList<Vacuna> vacunasAplicadas = new ArrayList();
+        
+        //definir la información de las vacunas aplciadas (una instacia de "Vacuna")
+        Vacuna vacuna1 = new Vacuna("Pfizer", "2024-07-09", "La rabia");
+        Vacuna vacuna2 = new Vacuna("Pfizer", "2024-06-09", "Moquillo");
+
+        
+        //agregarlas a la lista
+        vacunasAplicadas.add(vacuna1);
+        vacunasAplicadas.add(vacuna2);
+        
+        vacunasAplicadas.add( new Vacuna("Moderna", "2024-06-10", "para algo mas")  );
 
            // Se puede usar de forma independiente
 //        informacion.mostrarInformacion();
         
-        Mascota apolo = new Mascota("Apolo", "Perro", "Terrier", 2, informacion);
+        Mascota apolo = new Mascota("Apolo", "Perro", "Terrier", 2, vacunasAplicadas);
 
 //           apolo.nombre = "Apolo";
 //           apolo.tipo = "Perro";
