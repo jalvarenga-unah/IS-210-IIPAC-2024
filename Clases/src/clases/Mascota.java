@@ -13,17 +13,15 @@ import java.util.ArrayList;
 public class Mascota {
 
     //propiedades
-    private String nombre;
+    private String nombre = "";
     private String tipo;
     private String raza;
     private int edad;
 //    private Vacuna infoVacuna;
     private ArrayList<Vacuna> vacunas = new ArrayList();
-    
-//    Propietario propietario;
-    
-    // Propietario -> nombre, edad, genero
 
+//    Propietario propietario;
+    // Propietario -> nombre, edad, genero
     //constructor por defecto
     // definido de forma implicita
     Mascota(String nombre, String tipo, String raza, int edad, ArrayList<Vacuna> vacunas) {
@@ -62,18 +60,18 @@ public class Mascota {
         System.out.println("===Información de las vacunas===");
 //        this.vacunas.mostrarInformacion();// es un metodo existente en la clase Vacuna
 
-            //recorrer todo el listado de vacunas
-           for (int i = 0; i < vacunas.size(); i++){
-               
-               //acceder a la instancia que se está iterando
-               Vacuna info = vacunas.get(i); // devuelve una inastacia de Vacuna
-               
-               //ejecutar el método, para obtener la información 
-               info.mostrarInformacion();
-               
-               System.out.println("\n");
+        //recorrer todo el listado de vacunas
+        for (int i = 0; i < vacunas.size(); i++) {
 
-           }
+            //acceder a la instancia que se está iterando
+            Vacuna info = vacunas.get(i); // devuelve una inastacia de Vacuna
+
+            //ejecutar el método, para obtener la información 
+            info.mostrarInformacion();
+
+            System.out.println("\n");
+
+        }
 
     }
 
@@ -84,12 +82,15 @@ public class Mascota {
 
     void setNombre(String valor) throws Exception {
 
-        if (valor.isEmpty()) {
+        if (valor.length() < 5 || valor.isBlank()) {
 
-            // genere una excepción
-            throw new Exception("El nombre no puede ser vacío");
+            throw new Exception("EL nombre de la mascota debe ser mayor a 5 letras"); // es lo que impide que continue
 
-//            return;  
+        }
+
+        if (valor.length() >= 20) {
+
+            throw new Exception("Nombre muy largo compa");
         }
 
         this.nombre = valor;
