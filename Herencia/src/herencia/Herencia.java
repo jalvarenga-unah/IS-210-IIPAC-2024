@@ -16,6 +16,10 @@ public class Herencia {
     public static void main(String[] args) {
         // TODO code application logic here
 
+        Persona p1 = new Persona("Juan Alvarenga",
+                30,
+                "19191919191919" );
+        
         // Clase "padre"
         // Sub-clases "clases hijas"
         Estudiante juan = new Estudiante(
@@ -26,7 +30,7 @@ public class Herencia {
                 "Ingenieria en Sistenmas"
         );
 
-        juan.saludar();
+        juan.saludar(); // es de la clase Estudiante
         System.out.println(juan.dni);
 
         Estudiante pedro = new Estudiante(
