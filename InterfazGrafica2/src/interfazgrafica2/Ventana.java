@@ -34,6 +34,7 @@ public class Ventana extends javax.swing.JFrame {
         txtPregunta = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         lblRespuesta = new javax.swing.JLabel();
+        chkPermitirPregunta = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -57,6 +58,14 @@ public class Ventana extends javax.swing.JFrame {
 
         lblRespuesta.setFont(new java.awt.Font("Helvetica Neue", 2, 24)); // NOI18N
 
+        chkPermitirPregunta.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        chkPermitirPregunta.setText("Evitar hacer preguntas");
+        chkPermitirPregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkPermitirPreguntaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,21 +74,31 @@ public class Ventana extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnDialogo)
-                    .addComponent(jLabel1)
-                    .addComponent(txtPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chkPermitirPregunta))
+                        .addComponent(txtPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblRespuesta))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(chkPermitirPregunta)
+                        .addGap(5, 5, 5)))
                 .addComponent(txtPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(lblRespuesta)
-                .addGap(75, 75, 75)
+                .addGap(81, 81, 81)
                 .addComponent(btnDialogo)
                 .addContainerGap(112, Short.MAX_VALUE))
         );
@@ -103,6 +122,19 @@ public class Ventana extends javax.swing.JFrame {
         hacerPregunta(evt);
     }//GEN-LAST:event_txtPreguntaKeyReleased
 
+    private void chkPermitirPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPermitirPreguntaActionPerformed
+        // TODO add your handling code here:
+        if (chkPermitirPregunta.isSelected()) {
+            //deshabilitar la caja de texto
+            txtPregunta.setEditable(false);
+            txtPregunta.setText("");
+            return;
+        }
+
+        txtPregunta.setEditable(true);
+
+    }//GEN-LAST:event_chkPermitirPreguntaActionPerformed
+
     private void hacerPregunta(KeyEvent evt) {
 
         if (evt.getKeyCode() != 10) {
@@ -112,6 +144,10 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     private void hacerPregunta() {
+
+        if (chkPermitirPregunta.isSelected()) {
+            return;
+        }
 
         String[] posiblesRespuestas = {"SI", "NO", "Tal vez"};
 
@@ -168,6 +204,7 @@ public class Ventana extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDialogo;
+    private javax.swing.JCheckBox chkPermitirPregunta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblRespuesta;
     private javax.swing.JTextField txtPregunta;
